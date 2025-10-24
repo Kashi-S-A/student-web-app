@@ -61,6 +61,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>student-web-app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

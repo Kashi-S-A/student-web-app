@@ -18,7 +18,7 @@ spec:
   spec: 
     containers:
     - name: studentwebappcontainer
-      image: kashi/student-web-app:v3
+      image: kashi200/studentwebapp:latest
       imagePullPolicy: Always
       ports:
       - containerPort: 8080

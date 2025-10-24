@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: studentwebappdeployment
+spec:
+ replicas: 2
+ strategy: 
+    type: Recreate
+ selector: 
+   matchLabels: 
+     app: studentwebapp
+ template:
+  metadata:
+   name: studentwebapppod
+   labels:
+     app: studentwebapp	 
+  spec: 
+    containers:
+    - name: studentwebappcontainer
+      image: kashi/student-web-app:v3
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: studentwebappsvc
+spec:
+  type: LoadBalancer
+  selector:
+   app: studentwebapp
+  ports:
+   - port: 80
+     targetPort: 8080
+...
